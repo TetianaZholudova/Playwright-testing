@@ -25,8 +25,7 @@ test('should show "Password has to be from 8 to 15 characters long and contain a
     
     const signupPassword = page.locator('#signupPassword')
     await signupPassword.fill('8Aatest')
-    const registerBtn = page.locator('.modal-footer > .btn')
-    await registerBtn.click({force: true})
+    await signupPassword.blur()
     
     const invalidPasswordMessage = page.locator('.invalid-feedback > p')
     await expect(invalidPasswordMessage).toHaveText('Password has to be from 8 to 15 characters long and contain at least one integer, one capital, and one small letter'); 
