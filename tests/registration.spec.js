@@ -1,18 +1,17 @@
 import { test, expect } from '@playwright/test';
 
 
-test.describe('Register button validation', () => {
-test.only('verify if register button is enabled if all data is correct', async ({page}) => {
+test.describe('Registration', () => {
+test('verify if user is able to register in system', async ({page}) => {
     await page.goto('/'); 
-
     const signUpBtn = page.locator('.hero-descriptor_btn')
     await signUpBtn.click(); 
-
+    
     const signupName = page.locator('#signupName')
-    await signupName.fill('   Juliette   '.trim())
+    await signupName.fill('Juliette')
 
     const signupLastName = page.locator('#signupLastName')
-    await signupLastName.fill('   Wade   '.trim())
+    await signupLastName.fill('Wade')
 
     const signupEmail = page.locator('#signupEmail')
     await signupEmail.fill('aqa-xajaveppeicu-7911@yopmail.com')
@@ -32,3 +31,4 @@ test.only('verify if register button is enabled if all data is correct', async (
 
 
 })
+
